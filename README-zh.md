@@ -1,8 +1,8 @@
 # update-popup
 
-[![NPM Download](https://badgen.net/npm/dm/web-version-check)](https://www.npmjs.com/package/@wsj/web-version-check)
-[![NPM Version](https://badge.fury.io/js/%40wsj%2Fupdate-popup.svg)](https://www.npmjs.com/package/@wsj/web-version-check)
-[![NPM License](https://badgen.net/npm/license/@wsj/web-version-check)](https://github.com/wangshaojie1995/web-version-check/blob/master/LICENSE)
+[![NPM Download](https://badgen.net/npm/dm/web-version-check)](https://www.npmjs.com/package/web-version-popup)
+[![NPM Version](https://badge.fury.io/js/%40wsj%2Fupdate-popup.svg)](https://www.npmjs.com/package/web-version-popup)
+[![NPM License](https://badgen.net/npm/license/web-version-popup)](https://github.com/wangshaojie1995/web-version-check/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/wangshaojie1995/web-version-check/pulls)
 [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
 
@@ -28,7 +28,7 @@
 ## Install
 
 ```console
-yarn add @wsj/web-version-check
+yarn add web-version-popup
 ```
 
 [⬆ Back to Top](#table-of-contents)
@@ -52,14 +52,14 @@ WEB_VERSION=1.0.0 # 如果有必要，可以支持更多位数。如：1.0.0.1�
 ```js
 // nuxt.config.js
 const config = {
-  modules: ['@wsj/web-version-check/nuxt', {options}]
+  modules: ['web-version-popup/nuxt', {options}]
 }
 
 // vue.config.js 或者 poi.config.js
-const UpdatePopup = require('@wsj/web-version-check')
+const UpdatePopup = require('web-version-popup')
 const config = {
   chainWebpack: config => {
-    config.plugin('@wsj/web-version-check').use(UpdatePopup, [{options}])
+    config.plugin('web-version-popup').use(UpdatePopup, [{options}])
   }
 }
 ```
@@ -121,7 +121,7 @@ window.WebVersionChecker()
 - Default: `true`
 
 是否自动添加到 webpack 入口文件，一般情况下不需要设置此参数。  
-如果设置为 `false` 需要手动将 `@wsj/web-version-check/app/main` 注入到你的代码中。  
+如果设置为 `false` 需要手动将 `web-version-popup/app/main` 注入到你的代码中。  
 何时需要设置此参数请参阅 [Notice.QianKun（乾坤）](#qiankun乾坤)。
 
 ### options.envKey
@@ -159,8 +159,8 @@ window.WebVersionChecker()
 ```diff
 # nuxt.config.js
 const config = {
--  modules: ['@wsj/web-version-check/nuxt']
-+  modules: [['@wsj/web-version-check/nuxt'], { inject: false }]
+-  modules: ['web-version-popup/nuxt']
++  modules: [['web-version-popup/nuxt'], { inject: false }]
 }
 
 # vue.config.js 或者 poi.config.js
@@ -176,7 +176,7 @@ const config = {
 最后在你的**子应用**入口文件添加
 
 ```diff
-+ import '@wsj/web-version-check/app/main'
++ import 'web-version-popup/app/main'
 ```
 
 [⬆ Back to Top](#table-of-contents)

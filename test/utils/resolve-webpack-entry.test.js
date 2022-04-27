@@ -3,7 +3,7 @@
 const {resolveWebpackEntry, resolveApp} = require('../../utils')
 
 const options = {
-  NAME: '@wsj/web-version-check',
+  NAME: 'web-version-popup',
   filePath: resolveApp('main.js')
 }
 

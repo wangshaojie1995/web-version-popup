@@ -1,8 +1,8 @@
 # update-popup
 
-[![NPM Download](https://badgen.net/npm/dm/@wsj/web-version-check)](https://www.npmjs.com/package/@wsj/web-version-check)
-[![NPM Version](https://badge.fury.io/js/%40wsj%2Fupdate-popup.svg)](https://www.npmjs.com/package/@wsj/web-version-check)
-[![NPM License](https://badgen.net/npm/license/@wsj/web-version-check)](https://github.com/wangshaojie1995/web-version-check/blob/master/LICENSE)
+[![NPM Download](https://badgen.net/npm/dm/web-version-popup)](https://www.npmjs.com/package/web-version-popup)
+[![NPM Version](https://badge.fury.io/js/%40wsj%2Fupdate-popup.svg)](https://www.npmjs.com/package/web-version-popup)
+[![NPM License](https://badgen.net/npm/license/web-version-popup)](https://github.com/wangshaojie1995/web-version-check/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/wangshaojie1995/web-version-check/pulls)
 [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
 
@@ -28,7 +28,7 @@ Check if the current application is the latest version. If not, it reminds you t
 ## Install
 
 ```console
-yarn add @wsj/web-version-check
+yarn add web-version-popup
 ```
 
 [⬆ Back to Top](#table-of-contents)
@@ -55,7 +55,7 @@ Project configurations:
 // nuxt.config.js
 const config = {
   modules: [
-    ['@wsj/web-version-check/nuxt', {auto: true}]
+    ['web-version-popup/nuxt', {auto: true}]
   ]
 }
 ```
@@ -66,13 +66,13 @@ const config = {
 // .umirc.ts
 const config = {
   chainWebpack: config => {
-    config.plugin('@wsj/web-version-check').use(require('@wsj/web-version-check'), [{auto: true}])
+    config.plugin('web-version-popup').use(require('web-version-popup'), [{auto: true}])
   }
 }
 
 // and remember add import in your App.js
 // you may need to ignore IDE's warning
-import '@wsj/web-version-check/app/main'
+import 'web-version-popup/app/main'
 ```
 
 
@@ -120,7 +120,7 @@ The way of automatically generated version，values：
 - Default: `true`
 
 Does it need to be automatically added to the webpack entry file?
-If set `false` Need to manually `@wsj/web-version-check/app/main` Inject it into your code.
+If set `false` Need to manually `web-version-popup/app/main` Inject it into your code.
 When to set this parameter, see [Notice.QianKun](#qiankun)。
 
 ### envKey
@@ -152,8 +152,8 @@ Adjust the project configuration file
 ```diff
 # nuxt.config.js
 const config = {
--  modules: ['@wsj/web-version-check/nuxt']
-+  modules: [['@wsj/web-version-check/nuxt'], { inject: false }]
+-  modules: ['web-version-popup/nuxt']
++  modules: [['web-version-popup/nuxt'], { inject: false }]
 }
 
 # vue.config.js or poi.config.js
@@ -169,7 +169,7 @@ const config = {
 Add an entry file in your **Sub-application** at last
 
 ```diff
-+ import '@wsj/web-version-check/app/main'
++ import 'web-version-popup/app/main'
 ```
 
 [⬆ Back to Top](#table-of-contents)

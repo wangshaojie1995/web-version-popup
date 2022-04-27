@@ -1,6 +1,6 @@
 const UpdatePopup = require('.')
 
-const NAME = '@wsj/web-version-check'
+const NAME = 'web-version-popup'
 
 exports.name = NAME
 

@@ -28,7 +28,7 @@ const {
 /** @type {(filePath: PathLike) => string} */
 const readFile = filePath => fs.readFileSync(filePath, 'utf8')
 
-const NAME = '@wsj/web-version-check'
+const NAME = 'web-version-popup'
 
 const VERSION_TYPES = {
   TIMESTAMP: 'timestamp'
