@@ -34,6 +34,7 @@ yarn add web-version-popup
 [⬆ Back to Top](#table-of-contents)
 
 ## Usage
+
 ### popup.txt
 
 You need to set environment variables `WEB_VERSION`, when iteratively updating, modify the variables greater than current value.
@@ -54,19 +55,19 @@ Project configurations:
 ```js
 // nuxt.config.js
 const config = {
-  modules: [
-    ['web-version-popup/nuxt', {auto: true}]
-  ]
+  modules: [['web-version-popup/nuxt', {auto: true}]]
 }
 ```
 
 ```js
-// vue.config.js 
-// poi.config.js 
+// vue.config.js
+// poi.config.js
 // .umirc.ts
 const config = {
   chainWebpack: config => {
-    config.plugin('web-version-popup').use(require('web-version-popup'), [{auto: true}])
+    config
+      .plugin('web-version-popup')
+      .use(require('web-version-popup'), [{auto: true}])
   }
 }
 
@@ -74,7 +75,6 @@ const config = {
 // you may need to ignore IDE's warning
 import 'web-version-popup/app/main'
 ```
-
 
 It's so easy.
 
@@ -137,6 +137,13 @@ Key of the environment variable. e.g. `process.env.WEB_VERSION=1.0.0`
 
 Version filename.
 
+### options.message
+
+- Type: `string`
+- Default: `'发现新版本可用'`
+
+popup message
+
 ## Notice
 
 ### QianKun
@@ -184,7 +191,6 @@ For those who are interested in contributing to this project, such as:
 - implement a new feature
 
 [⬆ Back to Top](#table-of-contents)
-
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->

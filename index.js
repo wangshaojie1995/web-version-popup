@@ -44,7 +44,8 @@ class UpdatePopup {
         envKey: 'WEB_VERSION',
         versionFileName: 'web_version.txt',
         auto: false, // 是否自动生成 version
-        versionType: VERSION_TYPES.TIMESTAMP // 自动生成的 version 的方式
+        versionType: VERSION_TYPES.TIMESTAMP, // 自动生成的 version 的方式
+        message: '发现新版本可用' // 弹窗提示文本
       },
       options
     )
@@ -128,6 +129,7 @@ class UpdatePopup {
       replaceStr(content, {
         envKey: this.options.envKey,
         currentVersion: this.version,
+        message: this.message,
         ...extraReplacement
       })
     )

@@ -48,7 +48,6 @@ WEB_VERSION=1.0.0 # 如果有必要，可以支持更多位数。如：1.0.0.1�
 
 工程配置文件
 
-
 ```js
 // nuxt.config.js
 const config = {
@@ -78,7 +77,7 @@ window.WebVersionChecker()
 
 - 进入应用时查询 1 次版本号。
 - 应用正在工作时，每隔 1 小时获取版本号。
-- 应用不在工作时（切换到其他tab/关闭页面），停止获取版本号。
+- 应用不在工作时（切换到其他 tab/关闭页面），停止获取版本号。
 - 应用页面被激活(浏览器重新聚焦)时，会立马查询 1 次版本号；有 10 秒间隔，在间隔内频繁切换状态不会获取版本号。
 
 ## Options
@@ -137,12 +136,20 @@ window.WebVersionChecker()
 - Default: `'web_version.txt'`
 
 版本号文件名。
+
 ### options.checkInterval
 
 - Type: `number`
 - Default: `'一小时'`
 
 检测间隔
+
+### options.message
+
+- Type: `string`
+- Default: `'发现新版本可用'`
+
+弹窗提示文本
 
 ## Notice
 
@@ -190,9 +197,7 @@ For those who are interested in contributing to this project, such as:
 - fix a bug
 - implement a new feature
 
-
 [⬆ Back to Top](#table-of-contents)
-
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->

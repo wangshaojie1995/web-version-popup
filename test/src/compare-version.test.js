@@ -10,7 +10,7 @@ describe('测试版本号对比', () => {
   })
 
   test('新版本 小于 旧版本', () => {
-    expect(compareVersion('1.0.0', currentVersion)).toBe(false)
+    expect(compareVersion('1.0.0', currentVersion)).toBe(true)
   })
 
   test('两版本相同', () => {

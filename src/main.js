@@ -30,7 +30,7 @@ function main() {
 
     // 延后 1 秒显示以使得没有那么唐突
     setTimeout(() => {
-      createToast('发现新版本可用', {
+      createToast('{{message}}', {
         action: {
           text: '刷新',
           callback: () => {
@@ -54,7 +54,9 @@ function main() {
       // 防止10秒之内频繁切换
       if (currentMS - lastSeenMS > OneSecondMS * 10) {
         dispatch('immediate')
-        dispatch('startInterval', { interval: Number("{{CHECK_INTERVAL}}") || OneSecondMS * 60 * 60})
+        dispatch('startInterval', {
+          interval: Number('{{CHECK_INTERVAL}}') || OneSecondMS * 60 * 60
+        })
       }
     }
   }
@@ -80,7 +82,7 @@ export function compareVersion(newVersion, currentVersion) {
     for (let i = 0; i <= n.length; i++) {
       if (Number(n[i]) > Number(c[i] || 0)) return true
     }
-    if(newVersion !== currentVersion) return true
+    if (newVersion !== currentVersion) return true
   }
 
   return false
