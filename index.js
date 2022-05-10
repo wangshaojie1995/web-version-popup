@@ -129,7 +129,7 @@ class UpdatePopup {
       replaceStr(content, {
         envKey: this.options.envKey,
         currentVersion: this.version,
-        message: this.message,
+        message: this.options.message,
         ...extraReplacement
       })
     )
