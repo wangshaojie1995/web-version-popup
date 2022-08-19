@@ -1,6 +1,6 @@
 {
   "name": "web-version-popup",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Display an update message at right bottom",
   "author": "https://github.com/wangshaojie1995",
   "license": "MIT",
@@ -19,7 +19,8 @@
     "utils",
     "index.js",
     "nuxt.js",
-    "poi.js"
+    "poi.js",
+    "vite.js"
   ],
   "main": "index.js",
   "scripts": {
