@@ -37,13 +37,14 @@ const VERSION_TYPES = {
 class UpdatePopup {
   /** @param {UpdatePopupOptions} options */
   constructor(options) {
+    this.NAME = NAME
     this.options = Object.assign(
       {
         publicPath: '',
         inject: true, // 自动注入到 webpack.entry
         envKey: 'WEB_VERSION',
         versionFileName: 'web_version.txt',
-        auto: false, // 是否自动生成 version
+        auto: true, // 是否自动生成 version
         versionType: VERSION_TYPES.TIMESTAMP, // 自动生成的 version 的方式
         message: '发现新版本可用' // 弹窗提示文本
       },
@@ -88,26 +89,12 @@ class UpdatePopup {
       })
     }
 
-    // 先生成写入版本号的文件到 app
+    // 写入版本号的文件到 app
     compiler.hooks.beforeRun.tap(NAME, () => {
-      // 清空缓存文件夹
-      fs.emptyDirSync(resolveApp())
-
       const publicPath =
         _get(this, 'options.publicPath') ||
         _get(compiler, 'options.output.publicPath', '')
-
-      this.generateFile(
-        resolveApp('main.js'),
-        readFile(resolve('src', 'main.js')),
-        {
-          VERSION_FILE_PATH: correctPath(
-            publicPath,
-            this.options.versionFileName
-          ),
-          CHECK_INTERVAL: this.options.checkInterval
-        }
-      )
+      this.writeVersion(publicPath)
     })
 
     // 复制文件到 webpack 输出目录
@@ -121,7 +108,22 @@ class UpdatePopup {
       )
     })
   }
-
+  // 写入版本号的文件到 app
+  writeVersion(publicPath) {
+    // 清空缓存文件夹
+    fs.emptyDirSync(resolveApp())
+    this.generateFile(
+      resolveApp('main.js'),
+      readFile(resolve('src', 'main.js')),
+      {
+        VERSION_FILE_PATH: correctPath(
+          publicPath,
+          this.options.versionFileName
+        ),
+        CHECK_INTERVAL: this.options.checkInterval
+      }
+    )
+  }
   /** @type {(dest: PathLike, content: string, extraReplacement: obj) => void} */
   generateFile(dest = '', content = '', extraReplacement = {}) {
     fs.outputFileSync(
