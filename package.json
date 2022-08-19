@@ -1,6 +1,6 @@
 {
   "name": "web-version-popup",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Display an update message at right bottom",
   "author": "https://github.com/wangshaojie1995",
   "license": "MIT",
@@ -51,8 +51,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "post-commit": "git update-index --again",
-      "pre-push": "yarn test"
+      "post-commit": "git update-index --again"
     }
   },
   "lint-staged": {
@@ -64,5 +63,8 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "jest": {
+    "verbose": true
   }
 }

@@ -1,5 +1,5 @@
-import 'vercel-toast/dist/vercel-toast.css'
 import {createToast} from 'vercel-toast'
+import 'vercel-toast/css'
 
 main()
 
