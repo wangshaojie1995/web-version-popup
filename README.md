@@ -57,6 +57,20 @@ Project configurations:
 const config = {
   modules: [['web-version-popup/nuxt', {auto: true}]]
 }
+// vite.config.js
+import versionPopup from 'web-version-popup/vite'
+export default defineConfig({
+  plugins: [versionPopup.default()]
+})
+
+// icejs build.config.ts
+import versionPopup from 'web-version-popup/vite';
+export default {
+  vite: true,
+  vitePlugins: [
+    versionPopup.default(),
+  ],
+};
 ```
 
 ```js

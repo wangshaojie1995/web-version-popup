@@ -61,6 +61,22 @@ const config = {
     config.plugin('web-version-popup').use(UpdatePopup, [{options}])
   }
 }
+
+// vite.config.js
+import versionPopup from 'web-version-popup/vite'
+export default defineConfig({
+  plugins: [versionPopup.default()]
+})
+
+// icejs build.config.ts
+import versionPopup from 'web-version-popup/vite';
+export default {
+  vite: true,
+  vitePlugins: [
+    versionPopup.default(),
+  ],
+};
+
 ```
 
 如果你想自己触发
