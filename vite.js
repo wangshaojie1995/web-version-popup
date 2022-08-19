@@ -9,10 +9,10 @@ function WebVersionPopupPlugin(conf) {
     configResolved(resolvedConfig) {
       config = resolvedConfig
     },
+    buildStart() {
+      updatePopup.writeVersion(updatePopup.options.publicPath || config.base)
+    },
     transform(content, id) {
-      if (id === resolveApp('main.js')) {
-        updatePopup.writeVersion(updatePopup.options.publicPath || config.base)
-      }
       if (id.includes('html')) {
         return content.replace(
           '</body>',

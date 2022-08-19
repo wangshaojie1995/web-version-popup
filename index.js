@@ -72,6 +72,9 @@ class UpdatePopup {
     } else {
       this.version = process.env[this.options.envKey] || '1.0.0'
     }
+    // 清空缓存文件夹
+    fs.emptyDirSync(resolveApp())
+    console.log('本次打包版本号: ', this.version)
   }
 
   /** @type {(compiler: import('webpack').Compiler) => void} */
@@ -110,8 +113,6 @@ class UpdatePopup {
   }
   // 写入版本号的文件到 app
   writeVersion(publicPath) {
-    // 清空缓存文件夹
-    fs.emptyDirSync(resolveApp())
     this.generateFile(
       resolveApp('main.js'),
       readFile(resolve('src', 'main.js')),
